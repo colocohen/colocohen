@@ -11,7 +11,7 @@ Open source takes time, energy, and passion.
 If you’d like to support me and my work, you can do so through platforms like **[GitHub Sponsors]([#](https://github.com/sponsors/colocohen))** or **[Buy Me a Coffee](https://www.buymeacoffee.com/colocohen)**.  
 Your encouragement helps me stay motivated and keep creating libraries that benefit the entire community.  
 
-## 🚀 Projects
+## Projects
 
 - ⚡ [quico](https://github.com/colocohen/quico)  
   The **first full QUIC and HTTP/3 implementation for Node.js**.  
