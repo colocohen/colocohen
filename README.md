@@ -21,12 +21,11 @@ Your encouragement helps me stay motivated and keep creating libraries that bene
   The **first open-source DNS server for Node.js with full DNSSEC support**.  
   Lightweight, developer-friendly, and designed to make secure multi-domain management simple.
 
-
-<!--
-
-- 📡 [stable-webrtc](https://github.com/colocohen/stable-webrtc)  
+- 🎥 [stable-webrtc](https://github.com/colocohen/stable-webrtc)  
   A production-ready WebRTC library that solves the real-world headaches of vanilla WebRTC: signaling chaos, dropped connections, and multi-context confusion.  
   It was built to make peer-to-peer connections finally stable in production environments.
+
+<!--
 
 - 📧 [email-server](https://github.com/colocohen/email-server)  
   A flexible Node.js mail server that focuses on simplicity.  
