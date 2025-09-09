@@ -8,7 +8,7 @@ So I built my own tools — and instead of keeping them private, I released them
 My goal is to **strengthen the Node.js and JavaScript ecosystem** by providing reliable, useful, and production-ready libraries that developers can build on.  
 
 Open source takes time, energy, and passion.  
-If you’d like to support me and my work, you can do so through platforms like **[GitHub Sponsors](https://github.com/sponsors/colocohen)** or **[Buy Me a Coffee](https://www.buymeacoffee.com/colocohen)**.  
+If you’d like to support me and my work, you can do so through **[GitHub Sponsors](https://github.com/sponsors/colocohen)**.  
 Your encouragement helps me stay motivated and keep creating libraries that benefit the entire community.  
 
 ## Projects
