@@ -1,15 +1,19 @@
 ## 👋 Welcome
 
-What I couldn’t find, I built — and what I built, I shared.
+What I couldn’t find, I built — and what I built, I shared.  
 
-Most of my libraries started from my own needs: I searched for existing solutions but couldn’t find any that truly worked well.  
-So I built my own tools — and instead of keeping them private, I released them as open source.  
+Most of my libraries started from a gap: I needed low-level, reliable tools in Node.js — but they didn’t exist, or weren’t production-ready.  
+So I built my own, and released them as open source.  
 
-My goal is to **strengthen the Node.js and JavaScript ecosystem** by providing reliable, useful, and production-ready libraries that developers can build on.  
+My vision is to **strengthen the Node.js ecosystem at its foundations** by providing **low-level protocol and infrastructure libraries**.  
+This way, developers can stay in Node.js and JavaScript — without having to switch to heavier languages or using third-party software — while still building **fast, modern, and production-grade systems**.  
 
 Open source takes time, energy, and passion.  
 If you’d like to support me and my work, you can do so through **[GitHub Sponsors](https://github.com/sponsors/colocohen)**.  
 Your encouragement helps me stay motivated and keep creating libraries that benefit the entire community.  
+
+🧢 *So Let’s Make Node.js Great Again* - with high quailty infrastructure libraries 🦾
+
 
 ## Projects
 
@@ -24,6 +28,12 @@ Your encouragement helps me stay motivated and keep creating libraries that bene
 - 🎥 [stable-webrtc](https://github.com/colocohen/stable-webrtc)  
   A production-ready WebRTC library that solves the real-world headaches of vanilla WebRTC: signaling chaos, dropped connections, and multi-context confusion.  
   It was built to make peer-to-peer connections finally stable in production environments.
+
+  
+## Coming Soon
+
+- 📧 A **developer-friendly mail server** for Node.js — send and receive email without the heavy setup of traditional mail software.  
+- 🔒 A new **TLS implementation in pure JavaScript** — exposing handshake internals and modern cryptography to Node.js developers.  
 
 <!--
 
