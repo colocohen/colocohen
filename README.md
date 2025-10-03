@@ -21,6 +21,10 @@ Your encouragement helps me stay motivated and keep creating libraries that bene
   The **first full QUIC and HTTP/3 implementation for Node.js**.  
   Bringing next-generation internet protocols directly to JavaScript developers for ultra-fast networking and cutting-edge experimentation.
 
+- 🍋 [lemon-tls](https://github.com/colocohen/lemon-tls)  
+  TLS implementation in pure JavaScript.  
+  exposing handshake internals and modern cryptography to Node.js developers. 
+
 - 🌐 [dnssec-server](https://github.com/colocohen/dnssec-server)  
   The **first open-source DNS server for Node.js with full DNSSEC support**.  
   Lightweight, developer-friendly, and designed to make secure multi-domain management simple.
@@ -33,7 +37,6 @@ Your encouragement helps me stay motivated and keep creating libraries that bene
 ## Coming Soon
 
 - 📧 A **developer-friendly mail server** for Node.js — send and receive email without the heavy setup of traditional mail software.  
-- 🔒 A new **TLS implementation in pure JavaScript** — exposing handshake internals and modern cryptography to Node.js developers.  
 
 <!--
 
