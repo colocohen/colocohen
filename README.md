@@ -33,10 +33,6 @@ Your encouragement helps me stay motivated and keep creating libraries that bene
   A production-ready WebRTC library that solves the real-world headaches of vanilla WebRTC: signaling chaos, dropped connections, and multi-context confusion.  
   It was built to make peer-to-peer connections finally stable in production environments.
 
-  
-## Coming Soon
-
-- 📧 A **developer-friendly mail server** for Node.js — send and receive email without the heavy setup of traditional mail software.  
 
 <!--
 
