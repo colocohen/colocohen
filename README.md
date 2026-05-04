@@ -2,6 +2,8 @@
 
 Author of low-level libraries for Node.js. Pure-JavaScript implementations of core internet protocols - QUIC/HTTP3, TLS, DNSSEC, STUN/TURN, WebRTC, SMTP - alongside supporting libraries for real-time media, data formats, storage, and runtime utilities.
 
+These libraries share a single principle: every layer of the stack should be controllable from code. Running nginx, BIND, Postfix, or coturn next to your Node.js application is the standard answer - but it limits you to what their configuration files allow, makes the system hard to extend in directions the original authors didn't anticipate, and puts a process boundary between every layer. Each library here removes that compromise: the protocol becomes JavaScript you can read, modify, and program against directly - every request, every cryptographic key, every DNS record, every packet.
+
 ## Projects
 
 ### Networking & internet protocols
