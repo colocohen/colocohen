@@ -2,9 +2,11 @@
 
 Author of low-level libraries for Node.js. Pure-JavaScript implementations of core internet protocols - QUIC/HTTP3, TLS, DNSSEC, STUN/TURN, WebRTC, SMTP - alongside supporting libraries for real-time media, data formats, storage, and runtime utilities.
 
-These libraries share a single principle: every layer of the stack should be controllable from code. Running nginx, BIND, Postfix, or coturn next to your Node.js application is the standard answer - but it limits you to what their configuration files allow, makes the system hard to extend in directions the original authors didn't anticipate, and puts a process boundary between every layer. Each library here removes that compromise: the protocol becomes JavaScript you can read, modify, and program against directly - every request, every cryptographic key, every DNS record, every packet.
+These libraries share a single principle: every layer of the stack should be controllable from code. Running nginx, BIND, Postfix, or coturn next to your Node.js application is the standard answer - but it limits you to what their configuration files allow, makes the system hard to extend in directions the original authors didn't anticipate, and puts a process boundary between every layer. Each library here removes that compromise. The protocol becomes a function you write, not a config you maintain - DNS records computed at runtime per query, cryptographic keys held in your own code, every packet visible to your handler.
 
-When that's true, infrastructure stops being something you assemble around your code and becomes part of it. A two-person team can ship a system that used to require a dedicated SRE. Edge deployments don't have to ship without DNS, mail, or media handling. When something fails at the protocol level, you read source - your source. That's the Node.js these libraries are working toward.
+The libraries are also intentionally narrow. Each one implements its protocol and stops there. Every decision the protocol doesn't dictate - storage, business logic, signaling transport, architectural choices - stays in your code. They are libraries to compose, not frameworks to inherit.
+
+When that's true, infrastructure stops being something you assemble around your code and becomes part of it. A two-person team can ship a system that used to require a dedicated SRE. Edge deployments don't have to ship without DNS, mail, or media handling. Geo-routing, canary releases, and health-driven failover stop being managed-service features and become a few lines of JavaScript. When something fails at the protocol level, you read source - your source. That's the Node.js these libraries are working toward.
 
 ## Projects
 
@@ -15,9 +17,9 @@ When that's true, infrastructure stops being something you assemble around your 
 | ⚡ [**quico**](https://github.com/colocohen/quico) | First full QUIC and HTTP/3 implementation in pure JavaScript for Node.js. |
 | 🔐 [**lemon-tls**](https://github.com/colocohen/lemon-tls) | TLS 1.3 / 1.2 implementation with full control over cryptographic keys and the record layer. |
 | 📜 [**cert-manager**](https://github.com/colocohen/cert-manager) | ACME client with automatic certificate management. Zero dependencies. |
-| 🌐 [**dnssec-server**](https://github.com/colocohen/dnssec-server) | Authoritative DNS server with built-in DNSSEC, dynamic zones, and modern record types. |
+| 🌐 [**dnssec-server**](https://github.com/colocohen/dnssec-server) | Handler-based authoritative DNS - answers computed per query in JavaScript, DNSSEC signed at runtime, no zone files. |
 | 🛰️ [**turn-server**](https://github.com/colocohen/turn-server) | Embeddable STUN/TURN client and server. Full RFC coverage, zero dependencies. |
-| 📧 [**email-server**](https://github.com/colocohen/email-server) | Complete mail server in a single Node.js package - SMTP and IMAP. |
+| 📧 [**email-server**](https://github.com/colocohen/email-server) | Full mail stack - SMTP, IMAP, and POP3 (server + client) with DKIM, SPF, DMARC, and MTA-STS built in. |
 
 ### Real-time communication & media
 
@@ -53,5 +55,3 @@ Building production-grade implementations of the entire internet stack in pure J
 ## Sponsorship
 
 If your team relies on any of these libraries, sponsorship through [GitHub Sponsors](https://github.com/sponsors/colocohen) supports continued development and maintenance.
-
-
