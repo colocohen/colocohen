@@ -4,6 +4,8 @@ Author of low-level libraries for Node.js. Pure-JavaScript implementations of co
 
 These libraries share a single principle: every layer of the stack should be controllable from code. Running nginx, BIND, Postfix, or coturn next to your Node.js application is the standard answer - but it limits you to what their configuration files allow, makes the system hard to extend in directions the original authors didn't anticipate, and puts a process boundary between every layer. Each library here removes that compromise: the protocol becomes JavaScript you can read, modify, and program against directly - every request, every cryptographic key, every DNS record, every packet.
 
+When that's true, infrastructure stops being something you assemble around your code and becomes part of it. A two-person team can ship a system that used to require a dedicated SRE. Edge deployments don't have to ship without DNS, mail, or media handling. When something fails at the protocol level, you read source - your source. That's the Node.js these libraries are working toward.
+
 ## Projects
 
 ### Networking & internet protocols
@@ -15,23 +17,23 @@ These libraries share a single principle: every layer of the stack should be con
 | 📜 [**cert-manager**](https://github.com/colocohen/cert-manager) | ACME client with automatic certificate management. Zero dependencies. |
 | 🌐 [**dnssec-server**](https://github.com/colocohen/dnssec-server) | Authoritative DNS server with built-in DNSSEC, dynamic zones, and modern record types. |
 | 🛰️ [**turn-server**](https://github.com/colocohen/turn-server) | Embeddable STUN/TURN client and server. Full RFC coverage, zero dependencies. |
-| 📧 [**email-server**](https://github.com/colocohen/email-server) | Complete mail server in a single Node.js package — SMTP and IMAP. |
+| 📧 [**email-server**](https://github.com/colocohen/email-server) | Complete mail server in a single Node.js package - SMTP and IMAP. |
 
 ### Real-time communication & media
 
 | Project | Description |
 |---|---|
 | 📡 [**stable-webrtc**](https://github.com/colocohen/stable-webrtc) | WebRTC for Node.js and browsers, focused on signaling reliability and connection state in production. |
-| 🎥 [**webrtc-server**](https://github.com/colocohen/webrtc-server) | Server-side WebRTC stack with a browser-compatible API — SFU, RTP, data channels. |
+| 🎥 [**webrtc-server**](https://github.com/colocohen/webrtc-server) | Server-side WebRTC stack with a browser-compatible API - SFU, RTP, data channels. |
 | 🎙️ [**rtp-packet**](https://github.com/colocohen/rtp-packet) | RTP, RTCP, and SRTP packetization for Node.js. |
-| 🎞️ [**media-processing**](https://github.com/colocohen/media-processing) | WebCodecs-compatible API for encoding, decoding, muxing, and demuxing — backed by FFmpeg subprocesses. |
+| 🎞️ [**media-processing**](https://github.com/colocohen/media-processing) | WebCodecs-compatible API for encoding, decoding, muxing, and demuxing - backed by FFmpeg subprocesses. |
 
 ### Data & storage
 
 | Project | Description |
 |---|---|
 | 💾 [**uni-indexeddb**](https://github.com/colocohen/uni-indexeddb) | Unified key-value storage with the same API across browser (IndexedDB) and server (LevelDB). |
-| 🗜️ [**litepack**](https://github.com/colocohen/litepack) | Schema-based binary encoding for JavaScript — compact, fast, zero dependencies. |
+| 🗜️ [**litepack**](https://github.com/colocohen/litepack) | Schema-based binary encoding for JavaScript - compact, fast, zero dependencies. |
 
 ### JavaScript primitives & utilities
 
@@ -41,13 +43,15 @@ These libraries share a single principle: every layer of the stack should be con
 | 📏 [**flat-ranges**](https://github.com/colocohen/flat-ranges) | Merge, subtract, and invert flat numeric ranges. |
 | 🎲 [**pcg64dxsm**](https://github.com/colocohen/pcg64dxsm) | Bit-compatible PCG64-DXSM PRNG. WASM-accelerated, NumPy-compatible. |
 | 🔔 [**deep-events**](https://github.com/colocohen/deep-events) | Path-based event system covering events, state, DOM, workers, and lifecycle cleanup. |
-| 🌍 [**hint-locale**](https://github.com/colocohen/hint-locale) | Locale detection from browser signals and HTTP headers — country, language, confidence scoring. |
-| 🧭 [**js-runtime-environment**](https://github.com/colocohen/js-runtime-environment) | Detect the JavaScript runtime — Browser, Node.js, Deno, Bun, Electron, and more. |
+| 🌍 [**hint-locale**](https://github.com/colocohen/hint-locale) | Locale detection from browser signals and HTTP headers - country, language, confidence scoring. |
+| 🧭 [**js-runtime-environment**](https://github.com/colocohen/js-runtime-environment) | Detect the JavaScript runtime - Browser, Node.js, Deno, Bun, Electron, and more. |
 
 ## Contributing
 
-Issues, pull requests, and design discussions are welcome on every repository. Particular interest: protocol-level review, edge-case reports, and collaboration with teams running these stacks in production.
+Building production-grade implementations of the entire internet stack in pure JavaScript is more work than one person can finish alone. These projects benefit from anyone willing to read an RFC closely, find the edge case nobody else has hit, or push a library in directions the original draft never imagined. Issues, pull requests, and design discussions are open on every repository - particularly welcome from protocol implementers, security researchers, and engineers running these stacks in production.
 
 ## Sponsorship
 
 If your team relies on any of these libraries, sponsorship through [GitHub Sponsors](https://github.com/sponsors/colocohen) supports continued development and maintenance.
+
+
