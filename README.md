@@ -36,13 +36,14 @@ When that's true, infrastructure stops being something you assemble around your 
 |---|---|
 | 💾 [**uni-indexeddb**](https://github.com/colocohen/uni-indexeddb) | Unified key-value storage with the same API across browser (IndexedDB) and server (LevelDB). |
 | 🗜️ [**litepack**](https://github.com/colocohen/litepack) | Schema-based binary encoding for JavaScript - compact, fast, zero dependencies. |
+| 🗜️ [**compact-delta**](https://github.com/colocohen/compact-delta) | Generic optimal binary delta compression - auto-picks the smallest encoding (copy/insert, Myers LCS, or raw). |
 
 ### JavaScript primitives & utilities
 
 | Project | Description |
 |---|---|
-| 🧮 [**bloom-filter-numbers**](https://github.com/colocohen/bloom-filter-numbers) | Bloom filter optimized for numeric IDs, using splitmix64 and XOR fingerprinting. |
 | 📏 [**flat-ranges**](https://github.com/colocohen/flat-ranges) | Merge, subtract, and invert flat numeric ranges. |
+| 🧮 [**bloom-filter-numbers**](https://github.com/colocohen/bloom-filter-numbers) | Bloom filter optimized for numeric IDs, using splitmix64 and XOR fingerprinting. |
 | 🎲 [**pcg64dxsm**](https://github.com/colocohen/pcg64dxsm) | Bit-compatible PCG64-DXSM PRNG. WASM-accelerated, NumPy-compatible. |
 | 🔔 [**deep-events**](https://github.com/colocohen/deep-events) | Path-based event system covering events, state, DOM, workers, and lifecycle cleanup. |
 | 🌍 [**hint-locale**](https://github.com/colocohen/hint-locale) | Locale detection from browser signals and HTTP headers - country, language, confidence scoring. |
