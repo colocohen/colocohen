@@ -18,7 +18,7 @@ When that's true, infrastructure stops being something you assemble around your 
 | 🔐 [**lemon-tls**](https://github.com/colocohen/lemon-tls) | TLS 1.3 / 1.2 implementation with full control over cryptographic keys and the record layer. |
 | 📜 [**cert-manager**](https://github.com/colocohen/cert-manager) | ACME client with automatic certificate management. Zero dependencies. |
 | 🌐 [**dnssec-server**](https://github.com/colocohen/dnssec-server) | Handler-based authoritative DNS - answers computed per query in JavaScript, DNSSEC signed at runtime, no zone files. |
-| 🛰️ [**turn-server**](https://github.com/colocohen/turn-server) | Embeddable STUN/TURN client and server. Full RFC coverage, zero dependencies. |
+| 🛰️ [**turn-server**](https://github.com/colocohen/turn-server) | Embeddable STUN/TURN client and server. Full RFC coverage. |
 | 📧 [**email-server**](https://github.com/colocohen/email-server) | Full mail stack - SMTP, IMAP, and POP3 (server + client) with DKIM, SPF, DMARC, and MTA-STS built in. |
 
 ### Real-time communication & media
