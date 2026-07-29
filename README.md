@@ -2,11 +2,7 @@
 
 Author of low-level libraries for Node.js. Pure-JavaScript implementations of core internet protocols - QUIC/HTTP3, TLS, DNSSEC, STUN/TURN, WebRTC, SMTP - alongside supporting libraries for real-time media, data formats, storage, and runtime utilities.
 
-These libraries share a single principle: every layer of the stack should be controllable from code. Running nginx, BIND, Postfix, or coturn next to your Node.js application is the standard answer - but it limits you to what their configuration files allow, makes the system hard to extend in directions the original authors didn't anticipate, and puts a process boundary between every layer. Each library here removes that compromise. The protocol becomes a function you write, not a config you maintain - DNS records computed at runtime per query, cryptographic keys held in your own code, every packet visible to your handler.
-
-The libraries are also intentionally narrow. Each one implements its protocol and stops there. Every decision the protocol doesn't dictate - storage, business logic, signaling transport, architectural choices - stays in your code. They are libraries to compose, not frameworks to inherit.
-
-When that's true, infrastructure stops being something you assemble around your code and becomes part of it. A two-person team can ship a system that used to require a dedicated SRE. Edge deployments don't have to ship without DNS, mail, or media handling. Geo-routing, canary releases, and health-driven failover stop being managed-service features and become a few lines of JavaScript. When something fails at the protocol level, you read source - your source. That's the Node.js these libraries are working toward.
+They share a single principle: every layer of the stack should be controllable from code. The protocol becomes a function you write, not a config you maintain.
 
 ## Projects
 
@@ -18,7 +14,9 @@ When that's true, infrastructure stops being something you assemble around your 
 | 🔐 [**lemon-tls**](https://github.com/colocohen/lemon-tls) | TLS 1.3 / 1.2 implementation with full control over cryptographic keys and the record layer. |
 | 📜 [**cert-manager**](https://github.com/colocohen/cert-manager) | ACME client with automatic certificate management. Zero dependencies. |
 | 🌐 [**dnssec-server**](https://github.com/colocohen/dnssec-server) | Handler-based authoritative DNS - answers computed per query in JavaScript, DNSSEC signed at runtime, no zone files. |
+| 🔎 [**mdns-local**](https://github.com/colocohen/mdns-local) | Multicast DNS for LAN service discovery and advertising. Bonjour / Avahi compatible. |
 | 🛰️ [**turn-server**](https://github.com/colocohen/turn-server) | Embeddable STUN/TURN client and server. Full RFC coverage. |
+| 🚪 [**port-mapper**](https://github.com/colocohen/port-mapper) | NAT traversal via UPnP IGD, NAT-PMP, and PCP. Client and server. |
 | 📧 [**email-server**](https://github.com/colocohen/email-server) | Full mail stack - SMTP, IMAP, and POP3 (server + client) with DKIM, SPF, DMARC, and MTA-STS built in. |
 
 ### Real-time communication & media
@@ -48,6 +46,27 @@ When that's true, infrastructure stops being something you assemble around your 
 | 🔔 [**deep-events**](https://github.com/colocohen/deep-events) | Path-based event system covering events, state, DOM, workers, and lifecycle cleanup. |
 | 🌍 [**hint-locale**](https://github.com/colocohen/hint-locale) | Locale detection from browser signals and HTTP headers - country, language, confidence scoring. |
 | 🧭 [**js-runtime-environment**](https://github.com/colocohen/js-runtime-environment) | Detect the JavaScript runtime - Browser, Node.js, Deno, Bun, Electron, and more. |
+
+## Composing them
+
+The libraries are built to stack. A few combinations that work well together:
+
+**Self-contained edge server** - `quico` + `lemon-tls` + `cert-manager` + `dnssec-server`
+Terminates HTTP/3 with keys you control, issues its own certificates, and answers DNS for its own zone. Geo-routing and health-driven failover become `if` statements in the query handler.
+
+**Peer-to-peer media without external infrastructure** - `webrtc-server` + `turn-server` + `port-mapper` + `rtp-packet`
+Relays when NAT requires it, opens a direct path when it doesn't, and gives your handler every RTP packet in between.
+
+**LAN-first application** - `mdns-local` + `port-mapper` + `uni-indexeddb`
+Discovers peers on the local network, maps its own ports outward when it needs to be reachable, and stores state with one API on both sides of the wire.
+
+## Philosophy
+
+Running nginx, BIND, Postfix, or coturn next to your Node.js application is the standard answer - but it limits you to what their configuration files allow, makes the system hard to extend in directions the original authors didn't anticipate, and puts a process boundary between every layer. Each library here removes that compromise. DNS records are computed at runtime per query, cryptographic keys are held in your own code, every packet is visible to your handler.
+
+The libraries are also intentionally narrow. Each one implements its protocol and stops there. Every decision the protocol doesn't dictate - storage, business logic, signaling transport, architectural choices - stays in your code. They are libraries to compose, not frameworks to inherit.
+
+When that's true, infrastructure stops being something you assemble around your code and becomes part of it. A two-person team can ship a system that used to require a dedicated SRE. Edge deployments don't have to ship without DNS, mail, or media handling. Geo-routing, canary releases, and health-driven failover stop being managed-service features and become a few lines of JavaScript. When something fails at the protocol level, you read source - your source. That's the Node.js these libraries are working toward.
 
 ## Contributing
 
