@@ -40,10 +40,11 @@ They share a single principle: every layer of the stack should be controllable f
 
 | Project | Description |
 |---|---|
+| 🔔 [**deep-events**](https://github.com/colocohen/deep-events) | Path-based event system covering events, state, DOM, workers, and lifecycle cleanup. |
 | 📏 [**flat-ranges**](https://github.com/colocohen/flat-ranges) | Merge, subtract, and invert flat numeric ranges. |
+| 🔄 [**setrecon**](https://github.com/colocohen/setrecon) | Set reconciliation between two peers over any transport. Picks between IBLT, Strata, buckets, and BCH sketch automatically. |
 | 🧮 [**bloom-filter-numbers**](https://github.com/colocohen/bloom-filter-numbers) | Bloom filter optimized for numeric IDs, using splitmix64 and XOR fingerprinting. |
 | 🎲 [**pcg64dxsm**](https://github.com/colocohen/pcg64dxsm) | Bit-compatible PCG64-DXSM PRNG. WASM-accelerated, NumPy-compatible. |
-| 🔔 [**deep-events**](https://github.com/colocohen/deep-events) | Path-based event system covering events, state, DOM, workers, and lifecycle cleanup. |
 | 🌍 [**hint-locale**](https://github.com/colocohen/hint-locale) | Locale detection from browser signals and HTTP headers - country, language, confidence scoring. |
 | 🧭 [**js-runtime-environment**](https://github.com/colocohen/js-runtime-environment) | Detect the JavaScript runtime - Browser, Node.js, Deno, Bun, Electron, and more. |
 
