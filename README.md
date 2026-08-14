@@ -23,8 +23,8 @@ They share a single principle: every layer of the stack should be controllable f
 
 | Project | Description |
 |---|---|
-| 🎥 [**webrtc-server**](https://github.com/colocohen/webrtc-server) | Server-side WebRTC stack with a browser-compatible API - SFU, RTP, data channels. |
-| 🔀 [**sfu-server**](https://github.com/colocohen/sfu-server) | Selective Forwarding Unit for multi-party WebRTC. Routes audio, video, and data between participants with per-viewer simulcast selection and automatic keyframe recovery. |
+| 🎥 [**webrtc-server**](https://github.com/colocohen/webrtc-server) | Server-side WebRTC stack with a W3C browser-compatible PeerConnection API. |
+| 🔀 [**sfu-server**](https://github.com/colocohen/sfu-server) | Selective Forwarding Unit for multi-party WebRTC. mediasoup v3 API compatibility. |
 | 📡 [**stable-webrtc**](https://github.com/colocohen/stable-webrtc) | WebRTC for Node.js and browsers, focused on signaling reliability and connection state in production. |
 | 🎙️ [**rtp-packet**](https://github.com/colocohen/rtp-packet) | RTP, RTCP, and SRTP packetization for Node.js. |
 | 🎞️ [**media-processing**](https://github.com/colocohen/media-processing) | WebCodecs-compatible API for encoding, decoding, muxing, and demuxing - backed by FFmpeg subprocesses. |
