@@ -36,6 +36,7 @@ They share a single principle: every layer of the stack should be controllable f
 | 💾 [**uni-indexeddb**](https://github.com/colocohen/uni-indexeddb) | Unified key-value storage with the same API across browser (IndexedDB) and server (LevelDB). |
 | 🗜️ [**litepack**](https://github.com/colocohen/litepack) | Schema-based binary encoding for JavaScript - compact, fast, zero dependencies. |
 | 🗜️ [**compact-delta**](https://github.com/colocohen/compact-delta) | Generic optimal binary delta compression - auto-picks the smallest encoding (copy/insert, Myers LCS, or raw). |
+| 🗜️ [**cryptographic-formats**](https://github.com/colocohen/cryptographic-formats) |  |
 
 ### JavaScript primitives & utilities
 
