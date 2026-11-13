@@ -74,8 +74,15 @@ graph TD
   webrtc --> tls[lemon-tls]
   webrtc --> ranges[flat-ranges]
   webrtc --> formats[cryptographic-formats]
+  webrtc --> mp[media-processing]
   rtp --> ranges
 
+  turn --> tls
+  turn -.->|mDNS candidates| mdns[mdns-local]
+  turn -.->|port mapping| pm[port-mapper]
+  pm -.->|reachability checks| turn
+
+  moq[moq-transport] -.->|WebTransport binding| quico
   dns[dnssec-server] --> quico
   dns --> tls
   dns --> formats
@@ -94,7 +101,7 @@ graph TD
   class tls,formats,ranges base
 ```
 
-<sub>Solid arrows are npm dependencies. The dashed arrow is optional: in Node.js, `stable-webrtc` runs on `webrtc-server` as its WebRTC binding. Highlighted libraries are the shared foundation.</sub>
+<sub>Solid arrows are dependencies a library needs to load. Dashed arrows are optional: `turn-server` and `port-mapper` load each other, `mdns-local` included, only when the feature is used; `stable-webrtc` runs on `webrtc-server` as its Node.js binding; and `moq-transport` ships a binding for `quico`'s WebTransport server. Highlighted libraries are the shared foundation.</sub>
 
 ## Composing them
 
