@@ -12,7 +12,7 @@ They share a single principle: every layer of the stack should be controllable f
 |---|---|
 | ⚡ [**quico**](https://github.com/colocohen/quico) | First full QUIC and HTTP/3 implementation in pure JavaScript for Node.js. |
 | 🔐 [**lemon-tls**](https://github.com/colocohen/lemon-tls) | TLS 1.3 / 1.2 implementation with full control over cryptographic keys and the record layer. |
-| 📜 [**cert-manager**](https://github.com/colocohen/cert-manager) | ACME client with automatic certificate management. Zero dependencies. |
+| 📜 [**cert-manager**](https://github.com/colocohen/cert-manager) | ACME and EST client with automatic certificate management. |
 | 🌐 [**dnssec-server**](https://github.com/colocohen/dnssec-server) | Handler-based authoritative DNS - answers computed per query in JavaScript, DNSSEC signed at runtime, no zone files. |
 | 🔎 [**mdns-local**](https://github.com/colocohen/mdns-local) | Multicast DNS for LAN service discovery and advertising. Bonjour / Avahi compatible. |
 | 🛰️ [**turn-server**](https://github.com/colocohen/turn-server) | Embeddable STUN/TURN client and server. Full RFC coverage. |
@@ -24,7 +24,7 @@ They share a single principle: every layer of the stack should be controllable f
 | Project | Description |
 |---|---|
 | 🎥 [**webrtc-server**](https://github.com/colocohen/webrtc-server) | Server-side WebRTC stack with a W3C browser-compatible PeerConnection API. |
-| 🎥 [**moq-transport**](https://github.com/colocohen/moq-transport) | MOQT |
+| 📺 [**moq-transport**](https://github.com/colocohen/moq-transport) | Media over QUIC Transport (MOQT) for browsers and Node.js. |
 | 🔀 [**sfu-server**](https://github.com/colocohen/sfu-server) | Selective Forwarding Unit for multi-party WebRTC. mediasoup v3 API compatibility. |
 | 📡 [**stable-webrtc**](https://github.com/colocohen/stable-webrtc) | WebRTC for Node.js and browsers, focused on signaling reliability and connection state in production. |
 | 🎙️ [**rtp-packet**](https://github.com/colocohen/rtp-packet) | RTP, RTCP, and SRTP packetization for Node.js. |
@@ -37,7 +37,13 @@ They share a single principle: every layer of the stack should be controllable f
 | 💾 [**uni-indexeddb**](https://github.com/colocohen/uni-indexeddb) | Unified key-value storage with the same API across browser (IndexedDB) and server (LevelDB). |
 | 🗜️ [**litepack**](https://github.com/colocohen/litepack) | Schema-based binary encoding for JavaScript - compact, fast, zero dependencies. |
 | 🗜️ [**compact-delta**](https://github.com/colocohen/compact-delta) | Generic optimal binary delta compression - auto-picks the smallest encoding (copy/insert, Myers LCS, or raw). |
-| 🗜️ [**cryptographic-formats**](https://github.com/colocohen/cryptographic-formats) |  |
+
+### Cryptography
+
+| Project | Description |
+|---|---|
+| 🧾 [**cryptographic-formats**](https://github.com/colocohen/cryptographic-formats) | Strict parsing and building of cryptographic formats - X.509, PEM, PKCS#8/#12, CMS, JOSE, COSE, OpenSSH, OpenPGP, ASN.1/DER. Performs no cryptography. |
+| 🔑 [**cryptographic-primitives**](https://github.com/colocohen/cryptographic-primitives) | Cryptographic primitives in plain JavaScript - ciphers, hashes, signatures, key exchange. |
 
 ### JavaScript primitives & utilities
 
@@ -50,6 +56,45 @@ They share a single principle: every layer of the stack should be controllable f
 | 🎲 [**pcg64dxsm**](https://github.com/colocohen/pcg64dxsm) | Bit-compatible PCG64-DXSM PRNG. WASM-accelerated, NumPy-compatible. |
 | 🌍 [**hint-locale**](https://github.com/colocohen/hint-locale) | Locale detection from browser signals and HTTP headers - country, language, confidence scoring. |
 | 🧭 [**js-runtime-environment**](https://github.com/colocohen/js-runtime-environment) | Detect the JavaScript runtime - Browser, Node.js, Deno, Bun, Electron, and more. |
+
+## How they fit together
+
+Most of these libraries are built on each other. Two small foundations sit under everything secure: `cryptographic-formats` parses certificates and keys, and `lemon-tls` provides TLS and DTLS to every protocol that encrypts.
+
+```mermaid
+graph TD
+  sfu[sfu-server] --> webrtc[webrtc-server]
+  sfu --> rtp[rtp-packet]
+  stable[stable-webrtc] -.->|Node.js binding| webrtc
+  stable --> litepack
+  stable --> delta[compact-delta]
+
+  webrtc --> rtp
+  webrtc --> turn[turn-server]
+  webrtc --> tls[lemon-tls]
+  webrtc --> ranges[flat-ranges]
+  webrtc --> formats[cryptographic-formats]
+  rtp --> ranges
+
+  dns[dnssec-server] --> quico
+  dns --> tls
+  dns --> formats
+  quico --> tls
+  quico --> ranges
+  quico --> formats
+
+  email[email-server] --> tls
+  email --> ranges
+  email --> formats
+  cert[cert-manager] --> formats
+
+  tls --> formats
+
+  classDef base fill:#fde68a,stroke:#b45309,color:#1f2937
+  class tls,formats,ranges base
+```
+
+<sub>Solid arrows are npm dependencies. The dashed arrow is optional: in Node.js, `stable-webrtc` runs on `webrtc-server` as its WebRTC binding. Highlighted libraries are the shared foundation.</sub>
 
 ## Composing them
 
