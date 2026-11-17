@@ -104,6 +104,7 @@ graph TD
   webrtc --> prims
   rtp --> prims
   turn --> prims
+  dns --> prims
 
   classDef base fill:#fde68a,stroke:#b45309,color:#1f2937
   class tls,formats,prims,ranges base
