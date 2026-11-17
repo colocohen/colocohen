@@ -1,4 +1,4 @@
-# Aviv Cohen
+# Aviv
 
 Author of low-level libraries for Node.js. Pure-JavaScript implementations of core internet protocols - QUIC/HTTP3, TLS, DNSSEC, STUN/TURN, WebRTC, SMTP - alongside supporting libraries for real-time media, data formats, storage, and runtime utilities.
 
@@ -59,7 +59,7 @@ They share a single principle: every layer of the stack should be controllable f
 
 ## How they fit together
 
-Most of these libraries are built on each other. Two small foundations sit under everything secure: `cryptographic-formats` parses certificates and keys, and `lemon-tls` provides TLS and DTLS to every protocol that encrypts.
+Most of these libraries are built on each other. Three foundations sit under everything secure: `cryptographic-primitives` does the cryptography itself, `cryptographic-formats` parses certificates and keys, and `lemon-tls` provides TLS and DTLS to every protocol that encrypts.
 
 ```mermaid
 graph TD
@@ -97,8 +97,16 @@ graph TD
 
   tls --> formats
 
+  tls --> prims[cryptographic-primitives]
+  quico --> prims
+  cert --> prims
+  email --> prims
+  webrtc --> prims
+  rtp --> prims
+  turn --> prims
+
   classDef base fill:#fde68a,stroke:#b45309,color:#1f2937
-  class tls,formats,ranges base
+  class tls,formats,prims,ranges base
 ```
 
 <sub>Solid arrows are dependencies a library needs to load. Dashed arrows are optional: `turn-server` and `port-mapper` load each other, `mdns-local` included, only when the feature is used; `stable-webrtc` runs on `webrtc-server` as its Node.js binding; and `moq-transport` ships a binding for `quico`'s WebTransport server. Highlighted libraries are the shared foundation.</sub>
